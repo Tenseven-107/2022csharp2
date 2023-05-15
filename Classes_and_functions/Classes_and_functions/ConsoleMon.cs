@@ -12,6 +12,9 @@ namespace Classes_and_functions
         internal int energy;
         internal string name;
 
+        private List<Skill> skills;
+
+
         internal void TakeDamage(int damage)
         {
             this.health -= damage;
@@ -21,12 +24,5 @@ namespace Classes_and_functions
         {
             this.energy -= energy;
         }
-    }
-
-    internal class Skill
-    {
-        internal int damage;
-        internal int energyCost;
-        internal int name;
     }
 }
