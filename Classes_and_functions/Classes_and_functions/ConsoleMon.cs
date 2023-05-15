@@ -11,6 +11,7 @@ namespace Classes_and_functions
         internal int health;
         internal int energy;
         internal string name;
+        internal Elements weakness;
 
         private List<Skill> skills;
 
