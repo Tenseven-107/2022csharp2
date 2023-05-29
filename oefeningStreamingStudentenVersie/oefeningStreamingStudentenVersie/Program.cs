@@ -6,7 +6,7 @@ namespace oefeningStreamingStudentenVersie
     internal class Program
     {
         private string file;
-        private int levelSize = 10;
+        private int levelSize = 20;
         static void Main(string[] args)
         {
             Program prog = new Program();
@@ -42,7 +42,7 @@ namespace oefeningStreamingStudentenVersie
             using (StreamReader streamreader = new StreamReader(file))
             {
                 string horizontaleRegel;
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < levelSize; i++)
                 {
                     horizontaleRegel = streamreader.ReadLine();
                     Console.WriteLine(horizontaleRegel);
@@ -57,8 +57,8 @@ namespace oefeningStreamingStudentenVersie
             using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read))
             using (StreamReader streamReader = new StreamReader(fs))
             {
-                fs.Position = 0;//??verander dit
-                for (int i = 0; i < levelSize; i++)
+                fs.Position = levelIndex * levelSize;//??verander dit
+                for (int i = 0; i < fs.Position; i++)
                 {
                     string horizontaleRegel = streamReader.ReadLine();
                     Console.WriteLine(horizontaleRegel);
@@ -72,11 +72,15 @@ namespace oefeningStreamingStudentenVersie
 
             using (StreamReader streamReader = new StreamReader(file))
             {
+                ReadLevelSkip(levelIndex);
+
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
                 {
                     //blader tot je bij het level komt
                     //dan laat je het zien
+                    string horizontaleRegel = streamReader.ReadLine();
+                    Console.WriteLine(horizontaleRegel);
                 }
             }
 
