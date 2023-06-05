@@ -1,4 +1,6 @@
-﻿namespace Classes_and_functions
+﻿using System.Xml.Linq;
+
+namespace Classes_and_functions
 {
 
 
@@ -10,6 +12,7 @@
 
             TestConsoleMonFunctions();
             TestSkillFunctions();
+            TestConstructors();
         }
 
         static void TestConsoleMonFunctions()
@@ -38,6 +41,25 @@
 
             Console.WriteLine(targetMon.health == -150);
             Console.WriteLine(casterMon.energy == -20);
+        }
+
+        static void TestConstructors()
+        {
+            Console.WriteLine("TestConstructors");
+            ConsoleMon mon = new ConsoleMon(200, 200, "ConsoleColorMon", Elements.Earth);
+
+            Console.WriteLine(mon.energy == 200);
+            Console.WriteLine(mon.name == "ConsoleColorMon");
+            Console.WriteLine(mon.health == 200);
+            Console.WriteLine(mon.weakness == Elements.Earth);
+
+
+            Skill skill = new Skill(90, 80, "FireBlade", Elements.Fire);
+            Console.WriteLine(skill.energyCost == 80);
+            Console.WriteLine(skill.name == "FireBlade");
+            Console.WriteLine(skill.damage == 90);
+            Console.WriteLine(skill.element == Elements.Fire);
+
         }
     }
 }

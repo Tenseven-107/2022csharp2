@@ -16,6 +16,18 @@ namespace Classes_and_functions
         private List<Skill> skills;
 
 
+        public ConsoleMon()
+        {
+        }
+
+        internal ConsoleMon(int health, int energy, string name, Elements weakness)
+        {
+            this.health = health;
+            this.energy = energy;
+            this.name = name;
+            this.weakness = weakness;
+        }
+
         internal void TakeDamage(int damage)
         {
             this.health -= damage;
