@@ -8,12 +8,12 @@ namespace Classes_and_functions
 {
     internal class ConsoleMon
     {
-        internal int health;
-        internal int energy;
-        internal string name;
-        internal Elements weakness;
+        public int health { get; set; }
+        public int energy { get; set; }
+        public string name { get; set; }
+        public Elements weakness { get; set; }
 
-        private List<Skill> skills;
+        public List<Skill> skills { get; set; }
 
 
         public ConsoleMon()

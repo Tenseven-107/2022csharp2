@@ -13,6 +13,10 @@ namespace Classes_and_functions
             TestConsoleMonFunctions();
             TestSkillFunctions();
             TestConstructors();
+            TestFactoryFunctions();
+            TestCopySkill();
+            TestCopyConsoleMon();
+            TestArena();
         }
 
         static void TestConsoleMonFunctions()
@@ -60,6 +64,74 @@ namespace Classes_and_functions
             Console.WriteLine(skill.damage == 90);
             Console.WriteLine(skill.element == Elements.Fire);
 
+        }
+
+        //static void TestCopySkill()
+        //{
+        //    Console.WriteLine("TestCopySkill");
+        //    ConsoleMonFactory factory = new ConsoleMonFactory();
+        //    List<ConsoleMon> templates = factory.LoadJson("monsterdata.json");
+        //    Skill copyFrom = templates[0].skills[0];
+
+        //    Skill copy = factory.CopySkill(copyFrom);
+        //    Console.WriteLine(copy.name == copyFrom.name);
+        //    Console.WriteLine(copy.damage == copyFrom.damage);
+        //    Console.WriteLine(copy.element == copyFrom.element);
+        //    copy.name = "anders";
+        //    Console.WriteLine(copy.name != copyFrom.name);
+        //}
+
+        static void TestFactoryFunctions()
+        {
+            Console.WriteLine("TestFactoryFunctions");
+            ConsoleMonFactory factory = new ConsoleMonFactory();
+            factory.Load("monsterdata.txt");
+            factory.LoadJson("monsterdata.json");
+        }
+
+        static void TestCopySkill()
+        {
+            Console.WriteLine("TestCopySkill");
+            ConsoleMonFactory factory = new ConsoleMonFactory();
+            List<ConsoleMon> templates = factory.LoadJson("monsterdata.json");
+            Skill copyFrom = templates[0].skills[0];
+
+            Skill copy = factory.CopySkill(copyFrom);
+            Console.WriteLine(copy.name == copyFrom.name);
+            Console.WriteLine(copy.damage == copyFrom.damage);
+            Console.WriteLine(copy.element == copyFrom.element);
+            copy.name = "anders";
+            Console.WriteLine(copy.name != copyFrom.name);
+        }
+
+        static void TestCopyConsoleMon()
+        {
+            Console.WriteLine("TestCopyConsoleMon");
+            ConsoleMonFactory factory = new ConsoleMonFactory();
+            List<ConsoleMon> templates = factory.LoadJson("monsterdata.json");
+            ConsoleMon copyFrom = templates[0];
+
+            ConsoleMon copy = factory.CopyConsoleMon(copyFrom);
+            Console.WriteLine(copy.name == copyFrom.name);
+            Console.WriteLine(copy.health == copyFrom.health);
+            Console.WriteLine(copy.skills == copyFrom.skills);
+            Console.WriteLine(copy.skills[0] == copyFrom.skills[0]);
+            copy.name = "anders";
+            copy.skills[0].name = "newskill";
+            Console.WriteLine(copy.name != copyFrom.name);
+            Console.WriteLine(copy.skills[0].name != copyFrom.skills[0].name);
+        }
+
+        static void TestArena()
+        {
+            Console.WriteLine("TestArena");
+            ConsoleMonFactory factory = new ConsoleMonFactory();
+            List<ConsoleMon> templates = factory.LoadJson("monsterdata.json");
+            ConsoleMon copyFrom = templates[0];
+            ConsoleMon copyFromTwo = templates[1];
+
+            Arena arena = new Arena();
+            arena.Fight(copyFrom, copyFromTwo);
         }
     }
 }

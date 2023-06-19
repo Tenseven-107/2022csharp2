@@ -6,8 +6,8 @@
         {
             Console.WriteLine("Hello, World!");
 
-            Colors myMainThemeColor = 0;
-            if (myMainThemeColor == 0)
+            Colors myMainThemeColor = Colors.purple;
+            if (myMainThemeColor == Colors.purple)
             {
                 Console.WriteLine("Dit is mijn kleur");
             }

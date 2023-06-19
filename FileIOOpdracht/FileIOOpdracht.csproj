@@ -8,10 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="monsterdata.json">
+    <None Update="andthis.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="monsterdata.txt">
+    <None Update="readthis.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

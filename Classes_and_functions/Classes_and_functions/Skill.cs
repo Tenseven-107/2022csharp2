@@ -8,10 +8,10 @@ namespace Classes_and_functions
 {
     internal class Skill
     {
-        internal int damage;
-        internal int energyCost;
-        internal string name;
-        internal Elements element;
+        public int damage { get; set; }
+        public int energyCost { get; set; }
+        public string name { get; set; }
+        public Elements element { get; set; }
 
 
         public Skill()
